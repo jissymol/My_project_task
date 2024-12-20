@@ -1,0 +1,29 @@
+
+{% include 'User/user_view.html' %}
+
+
+{% load static %}
+
+ <body>
+		<div id="colorlib-main">
+	<section class="ftco-section-2">
+		<div class="photography">
+			<div class="row no-gutters">
+				{% for blog in blogs %}
+				<div class="col-md-3">
+					<a href="#" class="photography-entry img d-flex justify-content-center align-items-center" style="background-image: url('{{ blog.blog_images.url }}');">
+						<div class="overlay"></div>
+						<div class="text text-center">
+							<h3>{{ blog.title }}</h3>
+							<span>{{ blog.Date }}</span>
+						</div>
+					</a>
+				</div>
+				{% empty %}
+				<p>No photos to display.</p>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+</div>
+

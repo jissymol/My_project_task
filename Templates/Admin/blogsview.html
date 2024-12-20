@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% extends 'Admin/home.html' %}
+
+{% load static %}
+
+{% block title %}
+Details of Users
+{% endblock %}
+
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="row no-gutters">
+    {% for blog in blogs %}
+
+<div class="col-md-6">
+<div class="card" style="width:18rem">
+    <img src="{{blog.blog_images.url}}" class="card-img-top" alt="....">
+    <div class="card-body">
+        <p class="card-text">Title: {{ blog.title}}</p>
+        <p>Description: {{blog.description}}</p>
+         <p>Date: {{blog.Date}}</p>
+        <p>User: {{blog.userid.username}}</p>
+        	<p><a href="{% url 'blog_delete' blog.id %}" class="btn btn-primary p-3 px-xl-4 py-xl-3">Delete</a></p>
+
+    </div>
+</div>
+</div>
+    {% endfor %}
+
+</div>
+{% endblock %}
+
+
+
+
+
+</body>
+</html>

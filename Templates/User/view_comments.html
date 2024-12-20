@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Comments</title>
+</head>
+<body>
+    <h1>Comments for: {{ blog.title }}</h1>
+
+    <div>
+        {% if comments %}
+            <ul>
+                {% for comment in comments %}
+                    <li>
+                        <p><strong>{{ comment.userid.username }}:</strong> {{ comment.comment }}</p>
+                        <p><small>Posted on: {{ comment.Date }}</small></p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No comments yet.</p>
+        {% endif %}
+    </div>
+
+    <a href="{% url 'blogs' %}">Back to Blogs</a>
+</body>
+</html>

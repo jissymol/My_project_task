@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends 'Admin/home.html' %}
+
+{% load static %}
+
+{% block title %}
+Delete Blog
+{% endblock %}
+
+{% block content %}
+<body>
+     <div class="row block-9">
+	          <div class="">
+	       <h1>{{ blog.title }}</h1>
+
+            <form method="POST">
+             {% csrf_token %}
+            <h3>Are you sure you want to delete this Blog?</h3>
+                <button type="submit">Delete</button>
+</form>
+
+<a href="">Cancel</a> <!-- Provide a way for users to cancel -->
+
+	          </div>
+
+
+	        </div>
+</body>
+{% endblock %}
